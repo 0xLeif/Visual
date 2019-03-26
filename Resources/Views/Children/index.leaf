@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="title">Solution Title</label>
             <input type="text" name="title" class="form-control"
-                id="title" value=#(event.title) #if(user.id != event.user) {disabled}>
+                id="title" value="#(event.title)" #if(user.id != event.user) {disabled}>
         </div>
         #// Description
         <div class="form-group">
