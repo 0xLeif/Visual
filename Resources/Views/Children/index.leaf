@@ -8,63 +8,65 @@
 #for(event in userSolutions) {
 
 #set("eventCard") {
+
 <div class="eventBackground">
-<form method="post" action="/updateSolution">
-	<div class="eventCard">
-		<div class="eventTitle">
-        #// Title
-        <div class="form-group">
-            <label for="title">Solution Title</label>
-            <input type="text" name="title" class="form-control"
+	<form method="post" action="/updateSolution">
+		<div class="eventCard">
+			<div class="form-group">
+				<label for="title">Solution Title</label>
+				
+				<input type="text" name="title" class="form-control"
                 id="title" value="#(event.title)" #if(user.id != event.user) {disabled}>
-        </div>
-        #// Description
-        <div class="form-group">
-            <label for="json">Solution JSON</label>
-            <textarea type="text" name="json" class="form-control"
-                id="json" #if(user.id != event.user) {disabled}>#(event.json)</textarea>
-        </div>
-    </div>
-    <div class="eventDetail">
-        <div class="form-group">
-            <label for="level">Author</label>
-            <input type="text" class="form-control" value="#(event.authorName)" disabled>
-                </div>
-
-    <a class="btn btn-warning" href="/solution/#(event.id)">
-        View Solution
-    </a>
-
-    </div>
-    #// IDs
-    <div class="form-group" hidden>
-        <input type="number" name="user" class="form-control"
-        id="user" value="#(user.id)" step="1">
-        <input type="number" name="id" class="form-control"
-        id="id" value="#(event.id)" step="1">
-		<input type="text" name="authorName" class="form-control"
-		id="authorName" value="#(event.authorName)" step="1">
-		<input type="text" name="isSelectedEvent" value="#(event.isSelectedEvent)">
-    </div>
-    
-    	</div>
-		<div class="updateButtons">
-		#if(user.id == event.user) {
-		<button type="submit" class="btn btn-success">
-		    Update Solution
-		</button>
-		<button type="submit" class="btn btn-danger" formaction="/deleteEvent" formmethod="post">
-		    Delete Solution
-		</button>
+			</div>
+			
+			<div class="form-group">
+				<label for="level">Author</label>
+				
+				<input type="text" class="form-control" value="#(event.authorName)" disabled>
+			</div>
+			#// Description
+			
+			<div class="form-group">
+				<label for="json">Solution JSON</label>
+				
+				<textarea rows="5" type="text" name="json" class="form-control"
+		        id="json" #if(user.id != event.user) {disabled}>#(event.json)</textarea>
+			</div>
+		        
 		
-		}
+		   
+		    #// IDs
+			
+			<div class="form-group" hidden>
+				<input type="number" name="user" class="form-control"
+		        id="user" value="#(user.id)" step="1">
+				
+				<input type="number" name="id" class="form-control"
+		        id="id" value="#(event.id)" step="1">
+				
+				<input type="text" name="authorName" class="form-control"
+				id="authorName" value="#(event.authorName)" step="1">
+				
+				<input type="text" name="isSelectedEvent" value="#(event.isSelectedEvent)">
+			</div>
+			
+			<div class="updateButtons">#if(user.id == event.user) {
+				<button type="submit" class="btn btn-success">Update Solution</button>
+				
+				<button type="submit" class="btn btn-danger" formaction="/deleteEvent" formmethod="post">Delete Solution</button>
+				
+				}
+				<a class="btn btn-warning" href="/solution/#(event.id)">
+				    View Solution
+				</a></div>
 		</div>
-		
-        
-</form>
+	</form>
 </div>
+
 }
+
 #get(eventCard)
+
 }
 
 }
