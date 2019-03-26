@@ -7,13 +7,15 @@ final class Solution: SQLiteModel {
     
     var title: String
     var json: String
+    var code: String
     var authorName: String
     var user: User.ID
     
-    init(id: Int? = nil, title: String, json: String, user: User.ID, authorName: String) {
+    init(id: Int? = nil, title: String, json: String, code: String, user: User.ID, authorName: String) {
         self.id = id
         self.title = title
         self.json = json
+        self.code = code
         self.user = user
         self.authorName = authorName
     }

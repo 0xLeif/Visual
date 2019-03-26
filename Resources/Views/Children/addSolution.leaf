@@ -9,7 +9,7 @@
 					<label for="title">Solution Title</label>
 					
 					<input type="text" name="title" class="form-control"
-		            id="title">
+		            id="title" required>
 				</div>
 			
 				<div class="form-group">
@@ -21,9 +21,16 @@
 				<div class="form-group">
 					<label for="json">Solution JSON</label>
 					
-					<textarea rows="20" type="json" name="json" class="form-control"
-				    id="json"></textarea>
+					<textarea rows="10" type="json" name="json" class="form-control"
+				    id="json" required></textarea>
 				</div>
+
+                <div class="form-group">
+                    <label for="json">Solution Code</label>
+
+                    <textarea rows="20" type="code" name="code" class="form-control"
+                    id="code" required></textarea>
+                </div>
 				
 		    #// IDs
 			<div class="form-group" hidden>

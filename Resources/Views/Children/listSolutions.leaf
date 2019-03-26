@@ -15,7 +15,7 @@
 				<label for="title">Title</label>
 				
 				<input type="text" name="title" class="form-control"
-                id="title" value="#(event.title)" #if(user.id != event.user) {disabled}>
+                id="title" value="#(event.title)" #if(user.id != event.user) {disabled}else{required}>
 			</div>
 			
 			<div class="form-group">
@@ -29,9 +29,16 @@
 			<div class="form-group">
 				<label for="json">JSON Solution</label>
 				
-				<textarea rows="5" type="text" name="json" class="form-control"
-			    id="json" #if(user.id != event.user) {disabled}>#(event.json)</textarea>
+				<textarea rows="3" type="text" name="json" class="form-control"
+                id="json" #if(user.id != event.user) {disabled}else{required}>#(event.json)</textarea>
 			</div>
+
+            <div class="form-group">
+                <label for="json">Solution Code</label>
+
+                <textarea rows="7" type="code" name="code" class="form-control"
+                id="code" #if(user.id != event.user) {disabled}else{required}>#(event.code)</textarea>
+            </div>
 			    
 		    #// IDs
 			
